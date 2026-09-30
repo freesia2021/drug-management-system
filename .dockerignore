@@ -1,0 +1,61 @@
+# Dependencies
+node_modules
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Build outputs
+.next
+dist
+out
+build
+
+# Environment variables
+.env
+.env*.local
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+.DS_Store
+*.pem
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose.yml
+
+# Markup folders (개발용)
+drug_markup
+drug_markup2
+drug_markup3
+drug_markup4
+drug_markup5
+drug_markup6
+drug_markup7
+
+# Documentation
+README.md
+rules.txt
+api-docs.json
+*.md
+
