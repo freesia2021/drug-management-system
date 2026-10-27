@@ -5,7 +5,9 @@ import { useAtom } from 'jotai';
 import { jwtDecode } from 'jwt-decode';
 import { Header } from '../components/header';
 import { Navigation } from '../components/navigation';
-import { MainImageSection, FrequentMenu, NoticeSection } from '../components/main-content';
+import Link from 'next/link';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { MainImageSection, FrequentMenu, NoticeSection, ProcessSection } from '../components/main-content';
 import { Footer } from '../components/footer';
 import { NavItem, NewsItem } from '../types';
 import { isAdmin } from '../utils/auth';
@@ -122,17 +124,48 @@ export default function Home() {
       <Navigation items={filteredNavItems} onItemClick={handleNavClick} />
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* 메인 이미지 섹션 */}
-          <MainImageSection mainNews={mainNews} sideNews={sideNews} />
-          
-          {/* 하단 섹션 */}
-          <div className="flex flex-col lg:flex-row gap-6 justify-center">
-            <FrequentMenu menuItems={filteredMenuItems} />
-            <NoticeSection />
+      <main className="flex-1">
+        {/* 메인 비주얼 + 퀵메뉴 */}
+        <MainImageSection
+          mainNews={mainNews}
+          sideNews={sideNews}
+          aside={<FrequentMenu menuItems={filteredMenuItems} />}
+        />
+
+        {/* 알림·소식 + 센터 소개 */}
+        <section className="bg-surface py-16 md:py-20">
+          <div className="site-container grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 min-w-0">
+              <NoticeSection />
+            </div>
+            <Link
+              href="/intro"
+              className="group relative flex min-h-[340px] flex-col justify-end overflow-hidden rounded-xl bg-navy shadow-card"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                style={{ backgroundImage: `url(${sideNews.imageUrl})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d1b45] via-[#0d1b45]/50 to-transparent" />
+              <div className="relative p-7 text-white">
+                <p className="text-xs font-semibold tracking-[0.18em] uppercase text-blue-200">About Center</p>
+                <h3 className="mt-2 text-2xl font-bold">센터소개</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">
+                  첨단 분석장비와 전문 인력을 바탕으로
+                  <br />
+                  법과학 독성물질 연구를 수행합니다.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold">
+                  자세히 보기
+                  <ArrowRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
           </div>
-        </div>
+        </section>
+
+        {/* 연구관리 프로세스 */}
+        <ProcessSection />
       </main>
       
       {/* 푸터 */}

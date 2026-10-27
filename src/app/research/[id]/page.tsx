@@ -132,11 +132,10 @@ const ResearchDetailPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-gray-600">게시글을 불러오는 중...</p>
@@ -157,11 +156,10 @@ const ResearchDetailPage: React.FC = () => {
 
   if (error || !articleData) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-red-600">게시글을 불러오는 중 오류가 발생했습니다.</p>
@@ -244,11 +242,10 @@ const ResearchDetailPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+    <div className="min-h-screen flex flex-col bg-white">
       <Header title={siteConfig.title} />
       <Navigation items={navItems} onItemClick={handleNavClick} />
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <ResearchDetailView 
           research={research} 
           onGoBack={handleGoBack}

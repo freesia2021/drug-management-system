@@ -1,46 +1,60 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import Link from 'next/link';
+import {
+  ClipboardDocumentCheckIcon,
+  PencilSquareIcon,
+  BookOpenIcon,
+  MegaphoneIcon,
+  BeakerIcon,
+  ChevronRightIcon,
+} from '@heroicons/react/24/outline';
 import { MenuItem } from '../../types';
-import { isAdmin } from '../../utils/auth';
 
 interface FrequentMenuProps {
   menuItems: MenuItem[];
 }
 
+const MENU_META: Record<string, { Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>; description: string }> = {
+  research: { Icon: ClipboardDocumentCheckIcon, description: '연구계획 승인 요청 검토' },
+  'research-journal': { Icon: PencilSquareIcon, description: '연구 수행 내용 기록·조회' },
+  materials: { Icon: BeakerIcon, description: '시료·분석자료 등록 및 관리' },
+  publications: { Icon: BookOpenIcon, description: '연구성과 및 발간자료' },
+  news: { Icon: MegaphoneIcon, description: '공지사항과 센터 소식' },
+};
+
+// 권한 필터링은 상위(page)에서 처리된 목록을 그대로 사용
 const FrequentMenu: React.FC<FrequentMenuProps> = ({ menuItems }) => {
-  // ADMIN 권한이 있는 사용자만 연구승인 메뉴를 볼 수 있음
-  const filteredMenuItems = useMemo(() => {
-    if (isAdmin()) {
-      return menuItems;
-    }
-    return menuItems.filter(item => item.id !== 'research');
-  }, [menuItems]);
-  
   return (
-    <div className="bg-gray-200 rounded-lg p-6 w-full max-w-2xl">
-      <div className="bg-blue-900 rounded px-4 py-3 mb-6">
-        <h3 className="text-lg font-semibold text-white text-center">
-          자주 찾는 메뉴
+    <div className="w-full rounded-xl bg-white shadow-card-hover overflow-hidden">
+      <div className="flex items-baseline justify-between px-6 pt-6 pb-4">
+        <h3 className="text-lg font-bold text-ink">
+          QUICK <span className="text-royal">MENU</span>
         </h3>
+        <span className="text-xs text-gray-400">자주 찾는 메뉴</span>
       </div>
-      
-      <div className="grid grid-cols-2 gap-6">
-        {filteredMenuItems.map((item) => (
-          <Link
-            key={item.id}
-            href={item.href}
-            className="bg-white rounded-lg p-5 flex flex-col items-center justify-center hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
-          >
-            <div 
-              className="w-14 h-14 bg-cover bg-center bg-no-repeat mb-3 rounded"
-              style={{ backgroundImage: `url(${item.icon})` }}
-            />
-            <span className="text-lg font-semibold text-gray-900 text-center">
-              {item.label}
-            </span>
-          </Link>
-        ))}
-      </div>
+      <ul className="px-3 pb-3">
+        {menuItems.map((item) => {
+          const meta = MENU_META[item.id];
+          const Icon = meta?.Icon ?? ClipboardDocumentCheckIcon;
+          return (
+            <li key={item.id}>
+              <Link
+                href={item.href}
+                className="group flex items-center gap-4 px-3 py-3.5 rounded-lg hover:bg-surface transition-colors"
+              >
+                <span className="flex items-center justify-center w-11 h-11 rounded-lg bg-blue-50 text-navy group-hover:bg-navy group-hover:text-white transition-colors">
+                  <Icon className="w-6 h-6" />
+                </span>
+                <span className="flex-1 min-w-0">
+                  <span className="block text-[15px] font-bold text-ink">{item.label}</span>
+                  {meta && <span className="block text-[13px] text-gray-500 truncate">{meta.description}</span>}
+                </span>
+                <ChevronRightIcon className="w-4 h-4 text-gray-300 group-hover:text-royal transition-colors" />
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

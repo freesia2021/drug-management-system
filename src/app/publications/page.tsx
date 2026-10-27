@@ -84,11 +84,10 @@ const PublicationsPage: React.FC = () => {
   // 로딩 중
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-gray-600">게시글을 불러오는 중...</p>
@@ -110,11 +109,10 @@ const PublicationsPage: React.FC = () => {
   // 에러 발생
   if (error) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-red-600">게시글을 불러오는 중 오류가 발생했습니다.</p>
@@ -134,10 +132,7 @@ const PublicationsPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 이미지 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
-      
+    <div className="min-h-screen flex flex-col bg-white">
       {/* 헤더 */}
       <Header title={siteConfig.title} />
       
@@ -145,12 +140,12 @@ const PublicationsPage: React.FC = () => {
       <Navigation items={navItems} onItemClick={handleNavClick} />
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-10">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">연구성과</h2>
-            <p className="text-xl font-medium text-gray-700 leading-relaxed">
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink tracking-tight mb-2">연구성과</h2>
+            <p className="text-[16px] text-gray-500 leading-relaxed">
               독성물질 자료관리 시스템에서 발간한 연구보고서, 논문, 정책자료 등을 
               다운로드하실 수 있습니다. 모든 자료는 PDF 형태로 제공됩니다.
             </p>

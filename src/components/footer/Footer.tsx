@@ -1,5 +1,9 @@
+'use client';
+
 import React from 'react';
+import { ChevronUpIcon } from '@heroicons/react/24/outline';
 import { FooterLink, FooterButton } from '../../types';
+import { BrandEmblem } from '../brand/BrandLogo';
 
 interface FooterProps {
   title: string;
@@ -10,66 +14,64 @@ interface FooterProps {
   copyright: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ 
-  title, 
-  links, 
-  buttons, 
-  address, 
-  contact, 
-  copyright 
+const Footer: React.FC<FooterProps> = ({
+  title,
+  links,
+  buttons,
+  address,
+  contact,
+  copyright
 }) => {
   return (
-    <footer className="bg-white border-t border-gray-200 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-11">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8">
-          {/* 왼쪽 영역 */}
-          <div className="flex-1">
-            <h3 className="text-2xl font-bold text-blue-900 mb-2">
-              {title}
-            </h3>
-            
-            {/* 링크들 */}
-            <div className="flex flex-wrap gap-5 mb-2">
-              {links.map((link, index) => (
+    <footer className="mt-auto bg-navy-ink text-white/60">
+      {/* 정책 링크 + 바로가기 */}
+      <div className="border-b border-white/10">
+        <div className="site-container flex flex-col lg:flex-row lg:items-center justify-between gap-4 py-5">
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {links.map((link, index) => (
+              <li key={link.label}>
                 <a
-                  key={index}
                   href={link.href}
-                  className="text-xs font-bold text-gray-900 hover:text-blue-900 transition-colors"
+                  className={`text-sm font-medium transition-colors hover:text-white ${
+                    index === 0 ? 'text-[#8fb2ff] font-semibold' : 'text-white/80'
+                  }`}
                 >
                   {link.label}
                 </a>
-              ))}
-            </div>
-            
-            {/* 주소 및 연락처 */}
-            <div className="text-xs text-gray-900 leading-relaxed">
-              <div className="mb-1">{address}</div>
-              <div className="mb-1">{contact}</div>
-              <div className="mb-1">
-                홈페이지에 게시된 이메일 주소가 자동수집되는 것을 거부하며, 
-                이를 위반 시 처벌될 수 있음을 양지하여 주시기 바랍니다.
-              </div>
-              <div>{copyright}</div>
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
 
-          {/* 오른쪽 영역 - 버튼들 */}
-          <div className="flex flex-col gap-2">
-            <div className="flex gap-4">
-              {buttons.map((button, index) => (
-                <button
-                  key={index}
-                  onClick={button.onClick}
-                  className="bg-white border border-gray-200 rounded px-3 py-2 text-xs font-semibold text-gray-900 hover:bg-gray-50 transition-colors flex items-center gap-2"
-                >
-                  {button.icon && <span>{button.icon}</span>}
-                  <span>{button.label}</span>
-                  {button.arrow && <span className="text-xs">▼</span>}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2">
+            {buttons.map((button) => (
+              <button
+                key={button.label}
+                onClick={button.onClick}
+                className="flex items-center justify-between gap-6 min-w-[150px] h-10 px-4 rounded border border-white/15 bg-white/5 text-[13px] text-white/80 hover:bg-white/10 hover:text-white transition-colors"
+              >
+                <span>{button.label}</span>
+                {button.arrow ? <ChevronUpIcon className="w-3.5 h-3.5" /> : button.icon && <span aria-hidden="true">{button.icon}</span>}
+              </button>
+            ))}
           </div>
         </div>
+      </div>
+
+      {/* 기관 정보 */}
+      <div className="site-container flex flex-col md:flex-row gap-6 md:gap-10 py-9">
+        <div className="flex items-center gap-3 shrink-0">
+          <BrandEmblem className="w-10 h-10" light />
+          <div className="leading-tight">
+            <p className="text-[11px] text-white/50">법과학연구센터</p>
+            <p className="text-lg font-bold text-white">{title}</p>
+          </div>
+        </div>
+        <address className="not-italic text-[13px] leading-[1.9]">
+          <p>{address}</p>
+          <p>{contact}</p>
+          <p>홈페이지에 게시된 이메일 주소가 자동수집되는 것을 거부하며, 이를 위반 시 처벌될 수 있음을 양지하여 주시기 바랍니다.</p>
+          <p className="mt-2 text-white/40">{copyright}</p>
+        </address>
       </div>
     </footer>
   );

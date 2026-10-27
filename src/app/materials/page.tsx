@@ -145,11 +145,10 @@ const MaterialsPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-gray-600">자료를 불러오는 중...</p>
@@ -169,9 +168,7 @@ const MaterialsPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+    <div className="min-h-screen flex flex-col bg-white">
       
       {/* 헤더 */}
       <Header title={siteConfig.title} />
@@ -180,12 +177,12 @@ const MaterialsPage: React.FC = () => {
       <Navigation items={navItems} onItemClick={handleNavClick} />
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-10">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">자료관리</h2>
-            <p className="text-xl font-medium text-gray-700 leading-relaxed">
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink tracking-tight mb-2">자료관리</h2>
+            <p className="text-[16px] text-gray-500 leading-relaxed">
               프로젝트와 장비명을 관리할 수 있습니다. 연구에 필요한 자료를 체계적으로 관리하세요.
             </p>
           </div>

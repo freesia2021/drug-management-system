@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   typescript: {
     ignoreBuildErrors: false,
   },
@@ -18,7 +15,7 @@ const nextConfig = {
     return [
       {
         source: '/api/orbit/:path*',
-        destination: 'http://114.205.56.204:9001/orbit/:path*',
+        destination: `${process.env.API_PROXY_TARGET || 'http://114.205.56.204:9001'}/orbit/:path*`,
       },
     ];
   },

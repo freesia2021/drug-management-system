@@ -33,9 +33,14 @@ const ResearchPage: React.FC = () => {
   const [footerButtons] = useAtom(footerButtonsAtom);
   const [siteConfig] = useAtom(siteConfigAtom);
   
+  // 권한 확인은 클라이언트 마운트 후에만 수행 (hydration 에러 방지)
+  const [isUserAdmin, setIsUserAdmin] = useState<boolean | null>(null);
+
   // ADMIN 권한 체크 - ADMIN이 아니면 메인 페이지로 리다이렉트
   useEffect(() => {
-    if (typeof window !== 'undefined' && !isAdmin()) {
+    const admin = isAdmin();
+    setIsUserAdmin(admin);
+    if (!admin) {
       alert('연구승인 메뉴는 관리자만 접근할 수 있습니다.');
       router.replace('/');
     }
@@ -281,14 +286,12 @@ const ResearchPage: React.FC = () => {
   };
 
   // ADMIN이 아니면 아무것도 렌더링하지 않음 (리다이렉트 중)
-  if (!isAdmin()) {
+  if (!isUserAdmin) {
     return null;
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+    <div className="min-h-screen flex flex-col bg-white">
       
       {/* 헤더 */}
       <Header title={siteConfig.title} />
@@ -297,12 +300,12 @@ const ResearchPage: React.FC = () => {
       <Navigation items={filteredNavItems} onItemClick={handleNavClick} />
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-10">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">연구승인 (관리자)</h2>
-            <p className="text-xl font-medium text-gray-700 leading-relaxed">
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink tracking-tight mb-2">연구승인 (관리자)</h2>
+            <p className="text-[16px] text-gray-500 leading-relaxed">
               독성물질 자료관리 시스템에서 수행 중인 모든 연구일지를 확인하고 관리할 수 있습니다.
               각 연구자가 작성한 연구일지를 검토하고 승인할 수 있습니다.
             </p>

@@ -80,10 +80,7 @@ const ResearchSeminarPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 이미지 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
-      
+    <div className="min-h-screen flex flex-col bg-white">
       {/* 헤더 */}
       <Header title={siteConfig.title} />
       
@@ -91,12 +88,12 @@ const ResearchSeminarPage: React.FC = () => {
       <Navigation items={navItems} onItemClick={handleNavClick} />
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-10">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">학술세미나</h2>
-            <p className="text-xl font-medium text-gray-700 leading-relaxed">
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink tracking-tight mb-2">학술세미나</h2>
+            <p className="text-[16px] text-gray-500 leading-relaxed">
               당면한 치안현안에 대해 각계 전문가와 시민들의 다양한 의견을 청취하여 
               경찰의 치안정책에 반영하고자 매년 1~2회 학술세미나를 개최하고 있습니다.
             </p>

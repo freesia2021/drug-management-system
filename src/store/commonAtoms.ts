@@ -35,6 +35,12 @@ export const menuItemsAtom = atom<MenuItem[]>([
     href: '/research-journal'
   },
   {
+    id: 'materials',
+    label: '자료관리',
+    icon: '/images/재료관리_ico.png',
+    href: '/materials'
+  },
+  {
     id: 'publications',
     label: '연구성과',
     icon: '/images/발간자료_ico.png',
@@ -61,7 +67,6 @@ export const footerLinksAtom = atom<FooterLink[]>([
 export const footerButtonsAtom = atom<FooterButton[]>([
   {
     label: '인쇄하기',
-    icon: '🖨️',
     onClick: () => window.print()
   },
   {

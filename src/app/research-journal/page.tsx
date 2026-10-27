@@ -160,11 +160,10 @@ const ResearchJournalPage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-gray-600">연구일지를 불러오는 중...</p>
@@ -185,11 +184,10 @@ const ResearchJournalPage: React.FC = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen flex flex-col bg-gray-50">
-        <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+      <div className="min-h-screen flex flex-col bg-white">
         <Header title={siteConfig.title} />
         <Navigation items={navItems} onItemClick={handleNavClick} />
-        <main className="flex-1 py-10">
+        <main className="flex-1 py-12 md:py-14">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center py-20">
               <p className="text-xl text-red-600">연구일지를 불러오는 중 오류가 발생했습니다.</p>
@@ -209,10 +207,7 @@ const ResearchJournalPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 이미지 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
-      
+    <div className="min-h-screen flex flex-col bg-white">
       {/* 헤더 */}
       <Header title={siteConfig.title} />
       
@@ -220,12 +215,12 @@ const ResearchJournalPage: React.FC = () => {
       <Navigation items={navItems} onItemClick={handleNavClick} />
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-10">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">내 연구일지</h2>
-            <p className="text-xl font-medium text-gray-700 leading-relaxed">
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink tracking-tight mb-2">내 연구일지</h2>
+            <p className="text-[16px] text-gray-500 leading-relaxed">
               내가 작성한 연구일지를 확인하고 관리할 수 있습니다. 
               연구의 진행 상황과 중간 결과물을 기록하고 공유하세요.
             </p>

@@ -174,10 +174,7 @@ const ResearchJournalWritePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 이미지 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
-      
+    <div className="min-h-screen flex flex-col bg-white">
       {/* 헤더 */}
       <Header title={siteConfig.title} />
       
@@ -186,7 +183,7 @@ const ResearchJournalWritePage: React.FC = () => {
       
       
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-8">

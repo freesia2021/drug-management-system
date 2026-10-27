@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
+import { PlusIcon } from '@heroicons/react/24/outline';
 import { NoticeCategory } from '../../types';
 import { useArticles } from '../../hooks/queries/articles';
 import { isAdmin } from '../../utils/auth';
@@ -67,23 +68,35 @@ const NoticeSection: React.FC = () => {
   }, [data]);
 
   return (
-    <div className="bg-white rounded-lg p-6 w-full max-w-lg">
+    <div className="h-full rounded-xl bg-white border border-line shadow-card p-7">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="section-eyebrow">Notice</p>
+          <h3 className="mt-1 text-2xl font-bold text-ink tracking-tight">알림·소식</h3>
+        </div>
+        <Link
+          href={linkMap[activeTab]}
+          className="flex items-center gap-1 mt-1 text-sm font-medium text-gray-500 hover:text-royal transition-colors"
+          aria-label={`${activeTab} 더보기`}
+        >
+          더보기
+          <PlusIcon className="w-4 h-4" />
+        </Link>
+      </div>
+
       {/* 탭 메뉴 */}
-      <div className="flex mb-6">
-        {tabs.map((tab, index) => (
+      <div className="mt-5 flex gap-1 overflow-x-auto border-b border-line" role="tablist">
+        {tabs.map((tab) => (
           <button
             key={tab}
+            role="tab"
+            aria-selected={activeTab === tab}
             onClick={() => setActiveTab(tab)}
-            className={`
-              flex-1 h-12 border border-gray-300 flex items-center justify-center
-              font-semibold text-lg transition-colors duration-200
-              ${activeTab === tab 
-                ? 'bg-white border-b-0 text-gray-900' 
-                : 'bg-gray-100 text-gray-900 hover:bg-white'
-              }
-              ${index === 0 ? 'rounded-l' : ''}
-              ${index === tabs.length - 1 ? 'rounded-r' : ''}
-            `}
+            className={`-mb-px px-4 h-11 shrink-0 whitespace-nowrap text-[15px] border-b-[3px] transition-colors ${
+              activeTab === tab
+                ? 'border-royal text-navy font-bold'
+                : 'border-transparent text-gray-500 font-medium hover:text-navy'
+            }`}
           >
             {tab}
           </button>
@@ -91,32 +104,28 @@ const NoticeSection: React.FC = () => {
       </div>
 
       {/* 공지사항 목록 */}
-      <div className="space-y-4">
+      <ul className="mt-2">
         {isLoading ? (
-          <div className="text-center py-8">
-            <p className="text-gray-500">불러오는 중...</p>
-          </div>
+          <li className="py-14 text-center text-sm text-gray-400">불러오는 중...</li>
         ) : recentArticles.length > 0 ? (
           recentArticles.map((article) => (
-            <Link
-              key={article.id}
-              href={`${linkMap[activeTab]}/${article.id}`}
-              className="flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors duration-200"
-            >
-              <span className="text-lg font-semibold text-gray-900 flex-1 truncate">
-                {article.title}
-              </span>
-              <span className="text-sm font-semibold text-gray-900 ml-4">
-                {article.date}
-              </span>
-            </Link>
+            <li key={article.id}>
+              <Link
+                href={`${linkMap[activeTab]}/${article.id}`}
+                className="group flex items-center gap-4 py-4 border-b border-dashed border-line last:border-b-0"
+              >
+                <span className="shrink-0 px-2 py-0.5 rounded-sm bg-blue-50 text-xs font-semibold text-navy">{activeTab}</span>
+                <span className="flex-1 truncate text-[15px] font-medium text-ink group-hover:text-royal group-hover:underline underline-offset-4">
+                  {article.title}
+                </span>
+                <time className="shrink-0 text-[13px] text-gray-400 tabular-nums">{article.date}</time>
+              </Link>
+            </li>
           ))
         ) : (
-          <div className="text-center py-8">
-            <p className="text-gray-500">게시글이 없습니다.</p>
-          </div>
+          <li className="py-14 text-center text-sm text-gray-400">등록된 게시글이 없습니다.</li>
         )}
-      </div>
+      </ul>
     </div>
   );
 };

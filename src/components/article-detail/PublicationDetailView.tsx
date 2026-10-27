@@ -245,10 +245,10 @@ const PublicationDetailView: React.FC<PublicationDetailViewProps> = ({
       <div className="max-w-[971px] mx-auto mb-10">
         {publication.prevArticle && (
           <div className="flex items-center gap-5 py-2 border-b border-gray-300">
-            <span className="text-lg text-gray-900 min-w-[60px]">이전글</span>
+            <span className="text-[15px] text-ink min-w-[60px]">이전글</span>
             <button 
               onClick={() => handleNavigateClick(publication.prevArticle!.id)}
-              className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200 text-left"
+              className="text-[15px] font-semibold text-gray-500 hover:text-blue-600 transition-colors duration-200 text-left"
             >
               {publication.prevArticle.title}
             </button>
@@ -257,10 +257,10 @@ const PublicationDetailView: React.FC<PublicationDetailViewProps> = ({
 
         {publication.nextArticle && (
           <div className="flex items-center gap-5 py-2 border-b border-gray-300">
-            <span className="text-lg text-gray-900 min-w-[60px]">다음글</span>
+            <span className="text-[15px] text-ink min-w-[60px]">다음글</span>
             <button 
               onClick={() => handleNavigateClick(publication.nextArticle!.id)}
-              className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200 text-left"
+              className="text-[15px] font-semibold text-gray-500 hover:text-blue-600 transition-colors duration-200 text-left"
             >
               {publication.nextArticle.title}
             </button>

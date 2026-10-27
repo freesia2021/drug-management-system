@@ -36,9 +36,7 @@ const IntroPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      {/* 배경 */}
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+    <div className="min-h-screen flex flex-col bg-white">
       
       {/* 헤더 */}
       <Header title={siteConfig.title} />
@@ -51,7 +49,7 @@ const IntroPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 페이지 헤더 */}
           <div className="mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">센터소개</h2>
+            <h2 className="text-[28px] md:text-[32px] font-bold text-ink tracking-tight mb-4">센터소개</h2>
             <div className="h-1 w-20 bg-blue-600 mb-8"></div>
           </div>
 

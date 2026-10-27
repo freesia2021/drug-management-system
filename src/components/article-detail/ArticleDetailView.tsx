@@ -67,22 +67,22 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* 게시글 제목 */}
-      <h2 className="text-3xl font-medium text-gray-900 text-center mb-10">
+      <h2 className="text-[26px] md:text-[30px] font-bold text-ink tracking-tight text-center pt-2 mb-8">
         {article.title}
       </h2>
 
       {/* 연구일지 메타데이터 (있는 경우만 표시) */}
       {hasMetadata && (
-        <div className="bg-white border border-gray-300 rounded-lg overflow-hidden mb-10">
-          <div className="bg-blue-700 text-white py-3 px-6">
+        <div className="bg-white border-t-2 border-navy-ink border-b border-[#c3ccd9] overflow-hidden mb-10">
+          <div className="bg-[#f6f8fb] text-navy py-3 px-6 border-b border-[#c3ccd9]">
             <h3 className="text-lg font-bold text-center">
               The Laboratory Research Notebook
             </h3>
           </div>
           
           {article.organization && (
-            <div className="flex border-b border-gray-300">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+            <div className="flex border-b border-line">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">연구기관</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -92,8 +92,8 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
           )}
 
           {article.projectName && (
-            <div className="flex border-b border-gray-300">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+            <div className="flex border-b border-line">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">연구과제명</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -103,8 +103,8 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
           )}
 
           {article.period && (
-            <div className="flex border-b border-gray-300">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+            <div className="flex border-b border-line">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">연구기간</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -114,8 +114,8 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
           )}
 
           {article.project && (
-            <div className="flex border-b border-gray-300">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+            <div className="flex border-b border-line">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">프로젝트</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -125,8 +125,8 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
           )}
 
           {article.equipment && (
-            <div className="flex border-b border-gray-300">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+            <div className="flex border-b border-line">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">장비명</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -136,8 +136,8 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
           )}
 
           {article.department && (
-            <div className="flex border-b border-gray-300">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+            <div className="flex border-b border-line">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">부서명</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -148,7 +148,7 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
 
           {article.researcher && (
             <div className="flex">
-              <div className="w-36 flex-shrink-0 bg-gray-100 border-r border-gray-300 flex items-center justify-center px-4 py-3">
+              <div className="w-36 flex-shrink-0 bg-[#f6f8fb] border-r border-line flex items-center justify-center px-4 py-3">
                 <span className="text-base font-medium text-gray-900">연구자명</span>
               </div>
               <div className="flex-1 px-4 py-3 text-base text-gray-900">
@@ -160,29 +160,29 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
       )}
 
       {/* 게시글 정보 */}
-      <div className="bg-gray-100 border border-gray-300 mb-10">
+      <div className="bg-[#f6f8fb] border-t-2 border-navy-ink border-b border-[#c3ccd9] mb-10">
         {/* 첫 번째 줄: 작성일 | 작성자 | 조회수 */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 md:gap-0 p-4 md:p-0 md:h-12">
           {/* 작성일 */}
           <div className="flex items-center justify-center gap-2 flex-1">
-            <span className="text-lg font-medium text-gray-900">작성일</span>
-            <span className="text-lg text-gray-900">{article.date}</span>
+            <span className="text-[15px] font-semibold text-gray-500">작성일</span>
+            <span className="text-[15px] text-ink">{article.date}</span>
           </div>
 
-          <div className="hidden md:block w-px h-3 bg-gray-900" />
+          <div className="hidden md:block w-px h-3 bg-gray-300" />
 
           {/* 작성자 */}
           <div className="flex items-center justify-center gap-2 flex-1">
-            <span className="text-lg font-medium text-gray-900">작성자</span>
-            <span className="text-lg text-gray-900">{article.author}</span>
+            <span className="text-[15px] font-semibold text-gray-500">작성자</span>
+            <span className="text-[15px] text-ink">{article.author}</span>
           </div>
 
-          <div className="hidden md:block w-px h-3 bg-gray-900" />
+          <div className="hidden md:block w-px h-3 bg-gray-300" />
 
           {/* 조회수 */}
           <div className="flex items-center justify-center gap-2 flex-1">
-            <span className="text-lg font-medium text-gray-900">조회수</span>
-            <span className="text-lg text-gray-900">{article.views}</span>
+            <span className="text-[15px] font-semibold text-gray-500">조회수</span>
+            <span className="text-[15px] text-ink">{article.views}</span>
           </div>
         </div>
 
@@ -190,9 +190,9 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
         {article.attachments && article.attachments.length > 0 && (
           <div className="border-t border-gray-300 p-4 md:p-0 md:h-12 md:flex md:items-center md:justify-start md:pl-5">
             <div className="flex items-center gap-2">
-              <span className="text-lg font-medium text-gray-900">첨부파일</span>
+              <span className="text-[15px] font-semibold text-gray-500">첨부파일</span>
               <span 
-                className="text-lg text-gray-900 truncate max-w-xs"
+                className="text-[15px] text-ink truncate max-w-xs"
                 title={article.attachments[0].filename}
               >
                 {article.attachments[0].filename}
@@ -224,10 +224,10 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
       <div className="mb-10">
         {article.prevArticle && (
           <div className="flex items-center gap-5 py-2 border-b border-gray-300">
-            <span className="text-lg text-gray-900 min-w-[60px]">이전글</span>
+            <span className="text-[15px] text-ink min-w-[60px]">이전글</span>
             <button 
               onClick={() => handleNavigateClick(article.prevArticle!.id)}
-              className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200 text-left"
+              className="text-[15px] font-semibold text-gray-500 hover:text-blue-600 transition-colors duration-200 text-left"
             >
               {article.prevArticle.title}
             </button>
@@ -236,10 +236,10 @@ const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({ article, onGoBack
 
         {article.nextArticle && (
           <div className="flex items-center gap-5 py-2 border-b border-gray-300">
-            <span className="text-lg text-gray-900 min-w-[60px]">다음글</span>
+            <span className="text-[15px] text-ink min-w-[60px]">다음글</span>
             <button 
               onClick={() => handleNavigateClick(article.nextArticle!.id)}
-              className="text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors duration-200 text-left"
+              className="text-[15px] font-semibold text-gray-500 hover:text-blue-600 transition-colors duration-200 text-left"
             >
               {article.nextArticle.title}
             </button>

@@ -116,11 +116,11 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full">
-        <div className="bg-white rounded-lg shadow-lg p-8">
+    <div className="min-h-screen flex items-center justify-center bg-surface py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[480px] w-full">
+        <div className="bg-white rounded-xl border border-line shadow-card p-10 border-t-4 border-t-navy">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-blue-900 mb-2">
+            <h1 className="text-[28px] font-bold text-ink tracking-tight mb-2">
               회원가입
             </h1>
             <p className="text-sm text-gray-600">독성물질 자료관리 시스템</p>
@@ -129,7 +129,7 @@ const RegisterPage: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* 아이디 */}
             <div>
-              <label htmlFor="id" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="id" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 아이디 *
               </label>
               <input
@@ -138,16 +138,16 @@ const RegisterPage: React.FC = () => {
                 type="text"
                 value={formData.id}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border ${
+                className={`w-full h-12 px-4 border ${
                   errors.id ? 'border-red-500' : 'border-gray-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded focus:outline-none focus:border-royal focus:ring-4 focus:ring-royal/10`}
               />
               {errors.id && <p className="mt-1 text-sm text-red-600">{errors.id}</p>}
             </div>
 
             {/* 이름 */}
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="username" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 이름 *
               </label>
               <input
@@ -156,16 +156,16 @@ const RegisterPage: React.FC = () => {
                 type="text"
                 value={formData.username}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border ${
+                className={`w-full h-12 px-4 border ${
                   errors.username ? 'border-red-500' : 'border-gray-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded focus:outline-none focus:border-royal focus:ring-4 focus:ring-royal/10`}
               />
               {errors.username && <p className="mt-1 text-sm text-red-600">{errors.username}</p>}
             </div>
 
             {/* 비밀번호 */}
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 비밀번호 *
               </label>
               <input
@@ -174,16 +174,16 @@ const RegisterPage: React.FC = () => {
                 type="password"
                 value={formData.password}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border ${
+                className={`w-full h-12 px-4 border ${
                   errors.password ? 'border-red-500' : 'border-gray-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded focus:outline-none focus:border-royal focus:ring-4 focus:ring-royal/10`}
               />
               {errors.password && <p className="mt-1 text-sm text-red-600">{errors.password}</p>}
             </div>
 
             {/* 비밀번호 확인 */}
             <div>
-              <label htmlFor="passwordConfirm" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="passwordConfirm" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 비밀번호 확인 *
               </label>
               <input
@@ -192,16 +192,16 @@ const RegisterPage: React.FC = () => {
                 type="password"
                 value={formData.passwordConfirm}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border ${
+                className={`w-full h-12 px-4 border ${
                   errors.passwordConfirm ? 'border-red-500' : 'border-gray-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded focus:outline-none focus:border-royal focus:ring-4 focus:ring-royal/10`}
               />
               {errors.passwordConfirm && <p className="mt-1 text-sm text-red-600">{errors.passwordConfirm}</p>}
             </div>
 
             {/* 이메일 */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 이메일 *
               </label>
               <input
@@ -210,16 +210,16 @@ const RegisterPage: React.FC = () => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border ${
+                className={`w-full h-12 px-4 border ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded focus:outline-none focus:border-royal focus:ring-4 focus:ring-royal/10`}
               />
               {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
             </div>
 
             {/* 닉네임 */}
             <div>
-              <label htmlFor="nickname" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="nickname" className="block text-sm font-semibold text-gray-700 mb-1.5">
                 닉네임 *
               </label>
               <input
@@ -228,9 +228,9 @@ const RegisterPage: React.FC = () => {
                 type="text"
                 value={formData.nickname}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border ${
+                className={`w-full h-12 px-4 border ${
                   errors.nickname ? 'border-red-500' : 'border-gray-300'
-                } rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500`}
+                } rounded focus:outline-none focus:border-royal focus:ring-4 focus:ring-royal/10`}
               />
               {errors.nickname && <p className="mt-1 text-sm text-red-600">{errors.nickname}</p>}
             </div>
@@ -238,7 +238,7 @@ const RegisterPage: React.FC = () => {
             <button
               type="submit"
               disabled={registerMutation.isPending}
-              className="w-full py-3 px-4 bg-blue-900 text-white font-medium rounded-lg hover:bg-blue-800 transition-colors disabled:opacity-50"
+              className="w-full h-[52px] px-4 mt-2 bg-navy text-white font-semibold rounded hover:bg-blue-800 transition-colors disabled:opacity-50"
             >
               {registerMutation.isPending ? '가입 중...' : '회원가입'}
             </button>

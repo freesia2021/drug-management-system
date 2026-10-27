@@ -77,13 +77,12 @@ const SeminarWritePage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <div className="fixed inset-0 bg-gradient-to-br from-blue-50 to-white opacity-60 -z-10" />
+    <div className="min-h-screen flex flex-col bg-white">
       
       <Header title={siteConfig.title} />
       <Navigation items={navItems} onItemClick={handleNavClick} />
       
-      <main className="flex-1 py-10">
+      <main className="flex-1 py-12 md:py-14">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-gray-900">학술세미나 작성</h2>

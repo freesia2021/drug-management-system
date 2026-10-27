@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-gov-dynamic-subset.min.css');
 
 @tailwind base;
 @tailwind components;
@@ -6,29 +6,53 @@
 
 @layer base {
   html {
-    font-family: 'Pretendard', system-ui, sans-serif;
+    font-family: 'Pretendard GOV Variable', 'Pretendard GOV', Pretendard, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    color: #1d1d1d;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4169e1;
+    outline-offset: 2px;
   }
 }
 
 @layer components {
+  .site-container {
+    @apply max-w-site mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-navy hover:bg-blue-800 text-white font-medium py-2 px-4 rounded transition-colors;
   }
-  
+
   .btn-danger {
-    @apply bg-danger-600 hover:bg-danger-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-danger-600 hover:bg-danger-700 text-white font-medium py-2 px-4 rounded transition-colors;
   }
-  
+
   .btn-success {
-    @apply bg-success-600 hover:bg-success-700 text-white font-medium py-2 px-4 rounded-lg transition-colors;
+    @apply bg-success-600 hover:bg-success-700 text-white font-medium py-2 px-4 rounded transition-colors;
   }
-  
+
   .card {
-    @apply bg-white rounded-lg shadow-md border border-gray-200 p-6;
+    @apply bg-white rounded-lg shadow-card border border-line p-6;
   }
-  
+
   .input-field {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+
+  .section-eyebrow {
+    @apply text-[13px] font-semibold tracking-[0.18em] uppercase text-royal;
+  }
+
+  .section-title {
+    @apply text-[26px] md:text-[30px] font-bold text-ink tracking-tight;
   }
 }
 
